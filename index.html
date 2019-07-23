@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Calculator</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: Segoe UI;
+			}
+			body{
+				background-color: red;
+				
+			}
+			.main{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 30px;
+			}
+			input[type="textbox"]{
+				width: 20%;
+				height: 40px;
+font-size: 22px;	
+
+			}
+			input[type="button"]{
+				width: 50px;
+				height: 50px;
+				border: 1px solid white;
+				outline: none;
+				background-color: white;
+				font-size: 25px;
+				border-radius: 50%;
+				transition: 0.4s ease; 
+			}
+			input[type="button"]:hover{
+			background-color: black;
+			color: white;
+			box-shadow: 5px 10px 12px yellow;
+
+				}
+
+		</style>
+	</head>
+	<body>
+		<div class="main">
+		<input type="textbox" id="textview">
+		<table>
+			<tr>
+				<td>
+					<input type ="button"   value = "7" style = "cursor: pointer;" onclick="display(7)">
+					<input type ="button"  value = "8" style = "cursor: pointer;" onclick="display(8)">
+					<input type ="button"  value = "9" style = "cursor: pointer;" onclick="display(9)">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type ="button"   value = "4" style = "cursor: pointer;" onclick="display(4)">
+					<input type ="button"  value = "5" style = "cursor: pointer;" onclick="display(5)">
+					<input type ="button"  value = "6" style = "cursor: pointer;" onclick="display(6)">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type ="button"   value = "1" style = "cursor: pointer;" onclick="display(1)">
+					<input type ="button"  value = "2" style = "cursor: pointer;" onclick="display(2)">
+					<input type ="button"  value = "3" style = "cursor: pointer;" onclick="display(3)">
+				</td>
+			</tr>
+			<tr>
+
+				<td>
+					<input type ="button"   value = "0" style = "cursor: pointer;" onclick="display(0)">
+					<input type ="button"  value = "+" style = "cursor: pointer;" onclick="display('+')">
+					<input type ="button"  value = "-" style = "cursor: pointer;" onclick="display('-')">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type ="button"   value = "x" style = "cursor: pointer;" onclick="display('*')">
+					<input type ="button"  value = "/" style = "cursor: pointer;" onclick="display('/')">
+					<input type ="button"  value = "=" style = "cursor: pointer;" onclick="calculate()">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type ="button"  value = "C" style = "cursor: pointer;" onclick="cls()">
+					<input type ="button"  value = "<-" style = "cursor: pointer;" onclick="backspace()">
+					<input type ="button"  value = "." style = "cursor: pointer;" onclick="display('.')">
+
+				</td></tr>
+			</table>
+		</div>
+		</body>
+		<script>
+
+			function cls()
+			{
+				document.getElementById("textview").value = "";
+			}
+
+
+			function display(num)
+			{
+				document.getElementById("textview").value += num;
+			}
+
+
+			function calculate()
+			{
+				document.getElementById("textview").value = eval(document.getElementById('textview').value);
+			}
+
+			function backspace()
+			{
+				num = document.getElementById("textview").value;
+				document.getElementById("textview").value = num.substring(0, num.length-1);
+			}
+		</script>
+	</html>
